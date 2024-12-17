@@ -4,6 +4,8 @@ from models import BookModel
 
 app = FastAPI()
 
+#TODO: documentation - update 
+
 @app.get("/book/all")
 def get_all_books():
     result = book_services.get_book_all()
@@ -24,6 +26,7 @@ def delete_book(book_id: str):
     if not book_services.delete_book_by_id(book_id):
         raise HTTPException(status_code=400, detail="Bad Request")
 
+#TODO: review this domain
 #review books
 @app.get("/book-reviews/{book_id}")
 def get_book_by_id(book_id: str):
